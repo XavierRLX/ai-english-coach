@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "level": {
+    "cefr": "A1",
+    "confidence": 0
+  },
+  "stats": {
+    "sessionsCompleted": 0,
+    "totalMinutes": 0
+  },
+  "skills": {
+    "speaking": 0,
+    "listening": 0,
+    "grammar": 0,
+    "vocabulary": 0,
+    "pronunciation": 0
+  },
+  "focus": [],
+  "strengths": [],
+  "weaknesses": [],
+  "lastSession": null
+}

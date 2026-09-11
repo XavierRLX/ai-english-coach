@@ -1,0 +1,3 @@
+# Agent Behavior
+
+Documentation pending.
