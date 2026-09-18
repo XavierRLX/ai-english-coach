@@ -98,7 +98,7 @@ When executing `/start`, and only when real learner files exist, the agent MUST 
 4. `review/queue.json`
 5. `mistakes/mistakes.json`
 6. `vocabulary/vocabulary.json`
-7. Up to the 3 most recent files in `sessions/`
+7. Up to the 3 most recent real session files in `sessions/`, excluding files matching `*.example.*`
 
 The agent MUST NOT load the entire session history unless there is a specific need. `progress/current.json` exists to avoid rereading hundreds of historical session files.
 
@@ -121,13 +121,13 @@ The agent MUST:
 - identify the current focus;
 - prepare a short lesson plan.
 
-`/start` MUST NOT alter progress files or learner state.
+`/start` MUST NOT alter progress files or learner state.\n\nWhen repository access is needed, `/start` SHOULD be executed in text mode before entering Voice. The agent MUST NOT assume connected repository tools are available while Voice is active.
 
 ### `/lesson`
 
 The `/lesson` command starts or conducts the planned lesson.
 
-It MAY be used through text or voice. The agent SHOULD keep the lesson aligned with the plan while adapting to learner responses.
+It MAY be used through text or voice. The agent SHOULD keep the lesson aligned with the plan while adapting to learner responses. Voice MAY continue using context already loaded in the current conversation, but the agent MUST NOT assume repository or connected-app access is available while Voice is active.
 
 ### `/finish`
 
