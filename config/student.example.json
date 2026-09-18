@@ -3,5 +3,14 @@
   "name": "",
   "nativeLanguage": "pt-BR",
   "targetLanguage": "en-US",
-  "goal": "conversation"
+  "goal": {
+    "primary": "conversation",
+    "description": ""
+  },
+  "preferences": {
+    "method": "conversation-first",
+    "correctionStyle": "balanced",
+    "explanationLanguage": "pt-BR"
+  },
+  "interests": []
 }

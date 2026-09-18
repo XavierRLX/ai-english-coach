@@ -329,14 +329,16 @@ The agent MUST NOT implement or assume a detailed review algorithm until one is 
 Each valid `/finish` will eventually generate:
 
 ```text
-sessions/YYYY-MM-DD-HHmm.md
+sessions/YYYY-MM-DDTHHmmssZ.md
 ```
+
+The session ID is derived from `recordedAt`, the technical timestamp when `/finish` persists the session.
 
 Completed sessions are historical records.
 
 `sessions/* MUST be treated as append-only learning history.`
 
-The agent MUST NOT overwrite an old session during a future lesson. Clearly justified administrative corrections MAY be made, but they are not normal `/finish` behavior.
+The agent MUST NOT overwrite an existing session file. Clearly justified administrative corrections MAY be made, but they are not normal `/finish` behavior.
 
 ## 17. Finish Transaction
 
