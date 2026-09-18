@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "session.schema.json",
+  "title": "AI English Coach Session",
+  "description": "Conceptual structured contract for sessions/*.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sessionId",
+    "recordedAt",
+    "startedAt",
+    "durationMinutes",
+    "modality",
+    "cefrBefore",
+    "cefrAfter",
+    "focus",
+    "summary",
+    "vocabulary",
+    "mistakes",
+    "strengths",
+    "difficulties",
+    "evidenceNotes",
+    "nextLessonRecommendation"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{6}Z$"
+    },
+    "recordedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "durationMinutes": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "minimum": 0
+        }
+      ]
+    },
+    "modality": {
+      "type": "string",
+      "enum": [
+        "text",
+        "voice",
+        "mixed"
+      ]
+    },
+    "cefrBefore": {
+      "$ref": "#/$defs/cefr"
+    },
+    "cefrAfter": {
+      "$ref": "#/$defs/cefr"
+    },
+    "focus": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "summary": {
+      "type": "string"
+    },
+    "vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "mistakes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "difficulties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidenceNotes": {
+      "type": "string"
+    },
+    "nextLessonRecommendation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "$defs": {
+    "cefr": {
+      "enum": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        null
+      ]
+    }
+  }
+}

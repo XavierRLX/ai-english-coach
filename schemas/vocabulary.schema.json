@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vocabulary.schema.json",
+  "title": "AI English Coach Vocabulary",
+  "description": "Schema for vocabulary/vocabulary.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "items"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/vocabularyItem"
+      }
+    }
+  },
+  "$defs": {
+    "vocabularyItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "term",
+        "translation",
+        "examples",
+        "firstSeen",
+        "lastSeen",
+        "successfulReviews",
+        "failedReviews",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9][a-z0-9:_-]*$"
+        },
+        "term": {
+          "type": "string",
+          "minLength": 1
+        },
+        "translation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "firstSeen": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastSeen": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "successfulReviews": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failedReviews": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "new",
+            "learning",
+            "familiar",
+            "mastered"
+          ]
+        }
+      }
+    }
+  }
+}

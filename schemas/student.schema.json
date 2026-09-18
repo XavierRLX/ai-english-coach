@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "student.schema.json",
+  "title": "AI English Coach Student Configuration",
+  "description": "Schema for config/student.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "name",
+    "nativeLanguage",
+    "targetLanguage",
+    "goal",
+    "preferences",
+    "interests"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "nativeLanguage": {
+      "type": "string",
+      "minLength": 2
+    },
+    "targetLanguage": {
+      "type": "string",
+      "minLength": 2
+    },
+    "goal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary",
+        "description"
+      ],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "correctionStyle",
+        "explanationLanguage"
+      ],
+      "properties": {
+        "method": {
+          "const": "conversation-first"
+        },
+        "correctionStyle": {
+          "type": "string",
+          "enum": [
+            "gentle",
+            "balanced",
+            "intensive"
+          ]
+        },
+        "explanationLanguage": {
+          "type": "string",
+          "minLength": 2
+        }
+      }
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}

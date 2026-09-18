@@ -374,7 +374,7 @@ The agent MUST:
 
 ## 19. Missing State / First Run
 
-If `/start` is executed in the public repository and only `.example.json` files exist, the agent MUST detect that the environment is not initialized for a real learner.
+If `/start` is executed in the public repository and only `.example.*` template files exist, the agent MUST detect that the environment is not initialized for a real learner.
 
 The agent MUST NOT treat examples as a real learner profile.
 

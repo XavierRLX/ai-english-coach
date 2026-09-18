@@ -45,10 +45,10 @@ sessions/*.md
 Files matching:
 
 ```text
-*.example.json
+*.example.*
 ```
 
-exist only in the public template. They are examples, not real learner state. Agents MUST NOT read example files as evidence about a learner and MUST NOT update them as if they were active data.
+exist only in the public template. They are examples, not real learner state. This includes `sessions/session.example.md`. Agents MUST NOT read example files as evidence about a learner and MUST NOT update them as if they were active data.
 
 ## 3. `config/student.json`
 
